@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h2>Enrollees</h2>
+    </div>
+    <div class="col">
+        <mat-form-field
+        class="search-input">
+            <mat-icon matPrefix class="search-icon">search</mat-icon>
+            <input matInput type="search"
+            placeholder="Search for an enrollee."
+            name="search"
+        [(ngModel)]="search"
+        autocomplete="off">
+        </mat-form-field>
+      
+    </div>
+  </div>
+  <div *ngIf="!isLoading">
+    <div
+      class="card shadow p-3 mb-5 bg-white rounded"
+      *ngFor="let enrollee of (pageOfItems | sortByName ) | filterByName :  search"
+    >
+      <div class="card-body">
+        <a
+          class="btn-edit"
+          mat-button
+          [routerLink]="['/enroll/edit/' + enrollee.id]"
+          ><mat-icon>edit</mat-icon></a
+        >
+        <h5 class="card-title">
+          <span
+            [matTooltip]="enrollee.active ? 'Active' : 'In-active'"
+            [ngClass]="{
+              'active-dot': enrollee.active,
+              'in-active-dot': !enrollee.active
+            }"
+          ></span
+          >{{ enrollee.name | titlecase }}
+        </h5>
+
+        <h6 class="card-subtitle mb-2 text-muted">{{ enrollee.id }}</h6>
+        <p class="card-text">
+          Date of Birth : {{ enrollee.dateOfBirth | date: "MM/dd/yyyy" }}
+        </p>
+      </div>
+    </div>
+    <jw-pagination [pageSize]="6" [items]="enrollees" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+  <div *ngIf="isLoading">
+    Loading...
+  </div>
+</div>

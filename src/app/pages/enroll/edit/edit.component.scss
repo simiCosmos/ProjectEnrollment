@@ -1,0 +1,25 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  
+  .mat-raised-button {
+    max-width: 320px!important;
+    width: 100%!important;
+}
+.mat-form-field-infix{
+  color: grey;
+    font-size: small;
+}
+.active-rad, .mat-radio-inner-circle{
+  background-color: green!important;
+}
+.in-active-rad{
+  background-color: red!important;
+}

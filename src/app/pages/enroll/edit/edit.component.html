@@ -1,0 +1,114 @@
+<form>
+  <div class="container">
+    <h2>Edit Enrollee</h2>
+    <div class="row">
+      <!-- <div class="col">
+                <label > Id </label>
+            </div> -->
+      <div class="col">
+        <mat-form-field class="example-full-width">
+          <mat-label>Id</mat-label>
+          <input
+            matInput
+            disabled
+            type="text"
+            placeholder="Id"
+            name="id"
+            [(ngModel)]="enrolleeDetails.id"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col">
+                <label > Name </label>
+            </div> -->
+      <div class="col">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Name"
+            name="name"
+            [(ngModel)]="enrolleeDetails.name"
+            [formControl]="name"
+          />
+          <mat-error *ngIf="name?.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col">
+                <label > Date Of Birth </label>
+            </div> -->
+      <div class="col">
+        <mat-form-field class="example-full-width">
+          <mat-label>Date Of Birth</mat-label>
+          <input
+            matInput
+            disabled
+            type="text"
+            placeholder="Date Of Birth"
+            name="dateOfBirth"
+            [(ngModel)]="enrolleeDetails.dateOfBirth"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <!-- <mat-form-field appearance="fill"> -->
+          <mat-label class="mat-form-field-infix">Status</mat-label>
+          <!-- <mat-select
+            name="active"
+            [(ngModel)]="enrolleeDetails.active"
+            [formControl]="active"
+          >
+            <mat-option value="1">Active</mat-option>
+            <mat-option value="0">In active</mat-option>
+          </mat-select> -->
+          <mat-radio-group aria-label="Select an option"
+          name="active"
+            [(ngModel)]="enrolleeDetails.active"
+            [formControl]="active" color="primary">
+              <mat-radio-button value="1">Active</mat-radio-button>
+              <mat-radio-button value="0">In active</mat-radio-button>
+            </mat-radio-group>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="active?.hasError('required')"
+            >You must make a selection</mat-error
+          >
+          <!-- <mat-error
+            *ngIf="
+              selected.hasError('pattern') && !selected.hasError('required')
+            "
+          >
+            Your selection is invalid
+          </mat-error> -->
+        <!-- </mat-form-field> -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="saveData()"
+        >
+          Save
+        </button>
+      </div>
+      <div class="col">
+        <button [routerLink]="['/enroll/view-all']" mat-raised-button>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
