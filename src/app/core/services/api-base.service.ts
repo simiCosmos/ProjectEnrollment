@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiBaseService {
   /**
@@ -13,9 +13,7 @@ export class ApiBaseService {
    * @param {EncyptionService} encryptionService
    * @memberof ApiBaseService
    */
-  constructor(
-    private http: HttpClient,
-  ) {}
+  constructor(private http: HttpClient) {}
 
   /**
    *
@@ -39,10 +37,7 @@ export class ApiBaseService {
       headers = headers.append('If-Modified-Since', '0');
     }
 
-    return this.http.get(
-        `${environment.baseUrl}${path}`,
-      { headers, params }
-    );
+    return this.http.get(`${environment.baseUrl}${path}`, { headers, params });
   }
   /**
    *
@@ -55,11 +50,7 @@ export class ApiBaseService {
   put(path: string, body: any = {}): Observable<any> {
     const headers = new HttpHeaders();
     headers.append('content-type', 'application/json');
-    return this.http.put(
-        `${environment.baseUrl}${path}`,
-      body,
-      { headers }
-    );
+    return this.http.put(`${environment.baseUrl}${path}`, body, { headers });
   }
   /**
    *
@@ -78,11 +69,9 @@ export class ApiBaseService {
       headers = new HttpHeaders();
     }
     headers.set('content-type', 'application/json');
-    return this.http.post<any>(
-        `${environment.baseUrl}${path}`,
-      body,
-      { headers }
-    );
+    return this.http.post<any>(`${environment.baseUrl}${path}`, body, {
+      headers,
+    });
   }
   /**
    *
@@ -92,8 +81,6 @@ export class ApiBaseService {
    * @memberof ApiBaseService
    */
   delete(path): Observable<any> {
-    return this.http.delete(
-        `${environment.baseUrl}${path}`
-    );
+    return this.http.delete(`${environment.baseUrl}${path}`);
   }
 }

@@ -19,7 +19,7 @@
   <div *ngIf="!isLoading">
     <div
       class="card shadow p-3 mb-5 bg-white rounded"
-      *ngFor="let enrollee of (pageOfItems | sortByName ) | filterByName :  search"
+      *ngFor="let enrollee of (pageOfItems | sortByName )"
     >
       <div class="card-body">
         <a
@@ -45,7 +45,14 @@
         </p>
       </div>
     </div>
-    <jw-pagination [pageSize]="6" [items]="enrollees" (changePage)="onChangePage($event)"></jw-pagination>
+    <app-pagination [pageSize]="12"
+    [items]="enrollees"
+    [searchString]="search"
+    (changePage)="onChangePage($event)"
+    (searchResult)="onFilterChange($event)"
+    ></app-pagination>
+    <!-- <jw-pagination [pageSize]="6" [items]="enrollees" (changePage)="onChangePage($event)"></jw-pagination> -->
+    
   </div>
   <div *ngIf="isLoading">
     Loading...

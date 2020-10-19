@@ -6,16 +6,16 @@ import { EditComponent } from './edit/edit.component';
 const routes: Routes = [
   {
     path: 'view-all',
-    component:ViewAllComponent
+    component: ViewAllComponent,
   },
   {
     path: 'edit/:id',
-    component:EditComponent
+    component: EditComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class EnrollRoutingModule { }
+export class EnrollRoutingModule {}

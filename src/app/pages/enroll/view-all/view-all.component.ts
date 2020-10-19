@@ -35,4 +35,9 @@ export class ViewAllComponent implements OnInit {
     this.pageOfItems = pageOfItems;
   }
 
+  onFilterChange(pageOfItems: Array<any>): void {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+  }
+
 }

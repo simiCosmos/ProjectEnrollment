@@ -6,13 +6,18 @@ import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent],
-  imports: [CommonModule, LayoutRoutingModule, RouterModule,
-     MatToolbarModule, MatIconModule],
-  exports:[LayoutComponent]
+  imports: [
+    CommonModule,
+    LayoutRoutingModule,
+    RouterModule,
+    MatToolbarModule,
+    MatIconModule,
+  ],
+  exports: [LayoutComponent],
 })
 export class LayoutModule {}
