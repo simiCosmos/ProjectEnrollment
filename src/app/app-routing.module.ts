@@ -4,20 +4,24 @@ import { LayoutComponent } from './core/layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'enroll',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () =>
-          import('./pages/enroll/enroll.module').then((m) => m.EnrollModule),
-      },
-    ],
+    path: '',
+    redirectTo: '/enroll/view-all',
+    pathMatch: 'full',
   },
+  {
+    path:'enroll',
+    component:LayoutComponent,
+    children:[
+      {
+        path:'',
+        loadChildren: () => import('./pages/enroll/enroll.module').then(m => m.EnrollModule)
+      }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
