@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EnrollService } from 'src/app/core/services/enroll.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { Enrollee } from 'src/app/models/enrollee.model';
 
 @Component({
   selector: 'app-edit',
@@ -9,9 +10,9 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
-  enrolleeDetails = {
+  enrolleeDetails: Enrollee = {
     id: '',
-    active: '0',
+    active: false,
     name: '',
     dateOfBirth: '',
   };
@@ -35,8 +36,10 @@ export class EditComponent implements OnInit {
   getDetails(id: string): any {
     this.enrollservice.getEnrolleeById(id).subscribe(
       (data) => {
-        this.enrolleeDetails = data;
-        this.enrolleeDetails.active = data.active ? '1' : '0';
+        this.enrolleeDetails.id = data.id;
+        this.enrolleeDetails.name = data.name;
+        this.enrolleeDetails.dateOfBirth = data.dateOfBirth;
+        this.enrolleeDetails.active = data.active;
       },
       (error) => {
         alert('Failed to fetch details. Redirecting to details page.');

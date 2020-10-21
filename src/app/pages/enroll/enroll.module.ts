@@ -17,7 +17,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatRadioModule} from '@angular/material/radio';
 
 import { SortByNamePipe } from 'src/app/core/pipes/sort-by-name.pipe';
-import { FilterByNamePipe } from 'src/app/core/pipes/filter-by-name.pipe';
+
 
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { PaginationModule } from 'src/app/shared/pagination/pagination.module';
@@ -29,8 +29,7 @@ import { PaginationModule } from 'src/app/shared/pagination/pagination.module';
      EnrollComponent,
      EditComponent,
      SortByNamePipe,
-     FilterByNamePipe
-    ],
+     ],
   imports: [
     RouterModule,
     CommonModule,

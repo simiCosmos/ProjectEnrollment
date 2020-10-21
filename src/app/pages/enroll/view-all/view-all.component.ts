@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnrollService } from 'src/app/core/services/enroll.service';
+import { Enrollee } from 'src/app/models/enrollee.model';
 
 @Component({
   selector: 'app-view-all',
@@ -14,7 +15,7 @@ export class ViewAllComponent implements OnInit {
    */
   public serach = '';
 
-  enrollees = [];
+  enrollees: Enrollee[] = [];
 
   isLoading = true;
 
@@ -25,19 +26,26 @@ export class ViewAllComponent implements OnInit {
 
   ngOnInit(): void {
     this.enrollService.getEnrollees().subscribe((data) => {
-      this.enrollees = data;
+      let eachEnrollee = null;
+      data.forEach(enrolleeFromAPI => {
+        eachEnrollee = new Enrollee();
+        eachEnrollee.id = enrolleeFromAPI.id;
+        eachEnrollee.name = enrolleeFromAPI.name;
+        eachEnrollee.dateOfBirth = enrolleeFromAPI.dateOfBirth;
+        eachEnrollee.active = enrolleeFromAPI.active;
+        this.enrollees.push(eachEnrollee);
+      });
       this.isLoading = false;
     });
   }
 
-  onChangePage(pageOfItems: Array<any>): void {
+  onChangePage(pageOfItems: Array<Enrollee>): void {
     // update current page of items
     this.pageOfItems = pageOfItems;
   }
 
-  onFilterChange(pageOfItems: Array<any>): void {
+  onFilterChange(pageOfItems: Array<Enrollee>): void {
     // update current page of items
     this.pageOfItems = pageOfItems;
   }
-
 }

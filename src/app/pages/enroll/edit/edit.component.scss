@@ -1,25 +1,24 @@
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+  min-width: 9.375rem;
+  max-width: 31.25rem;
+  width: 100%;
+}
 
-  
-  .mat-raised-button {
-    max-width: 320px!important;
-    width: 100%!important;
+.example-full-width {
+  width: 100%;
 }
-.mat-form-field-infix{
+
+.rad-right {
+  padding: 0 1rem;
+}
+.mat-form-field-infix {
   color: grey;
-    font-size: small;
+  font-size: small;
 }
-.active-rad, .mat-radio-inner-circle{
-  background-color: green!important;
+.active-rad,
+.mat-radio-inner-circle {
+  background-color: green;
 }
-.in-active-rad{
-  background-color: red!important;
+.in-active-rad {
+  background-color: red;
 }

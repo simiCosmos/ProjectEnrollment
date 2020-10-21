@@ -5,6 +5,10 @@ import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: ViewAllComponent,
+  },
+  {
     path: 'view-all',
     component: ViewAllComponent,
   },

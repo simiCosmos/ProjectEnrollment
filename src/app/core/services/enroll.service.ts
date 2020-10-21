@@ -17,7 +17,7 @@ export class EnrollService {
   updateEnrollee(enrolleeDetails: any): Observable<any> {
     const body = {
       name: enrolleeDetails.name,
-      active: enrolleeDetails.active === '1',
+      active: enrolleeDetails.active,
       dateOfBirth: enrolleeDetails.dateOfBirth,
     };
 

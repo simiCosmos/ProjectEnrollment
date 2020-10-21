@@ -1,11 +1,8 @@
 <form>
-  <div class="container">
-    <h2>Edit Enrollee</h2>
+  <div class="container-fluid">
+    <h4 class="mt-3">Edit Enrollee</h4>
     <div class="row">
-      <!-- <div class="col">
-                <label > Id </label>
-            </div> -->
-      <div class="col">
+      <div class="col-md-6">
         <mat-form-field class="example-full-width">
           <mat-label>Id</mat-label>
           <input
@@ -20,10 +17,7 @@
       </div>
     </div>
     <div class="row">
-      <!-- <div class="col">
-                <label > Name </label>
-            </div> -->
-      <div class="col">
+      <div class="col-md-6">
         <mat-form-field class="example-full-width">
           <mat-label>Name</mat-label>
           <input
@@ -41,10 +35,7 @@
       </div>
     </div>
     <div class="row">
-      <!-- <div class="col">
-                <label > Date Of Birth </label>
-            </div> -->
-      <div class="col">
+      <div class="col-md-6">
         <mat-form-field class="example-full-width">
           <mat-label>Date Of Birth</mat-label>
           <input
@@ -60,41 +51,28 @@
     </div>
 
     <div class="row">
-      <div class="col">
-        <!-- <mat-form-field appearance="fill"> -->
-          <mat-label class="mat-form-field-infix">Status</mat-label>
-          <!-- <mat-select
-            name="active"
-            [(ngModel)]="enrolleeDetails.active"
-            [formControl]="active"
-          >
-            <mat-option value="1">Active</mat-option>
-            <mat-option value="0">In active</mat-option>
-          </mat-select> -->
-          <mat-radio-group aria-label="Select an option"
+      <div class="col-md-6">
+        <mat-label class="mat-form-field-infix">Status</mat-label>
+        <mat-radio-group
+          aria-label="Select an option"
           name="active"
-            [(ngModel)]="enrolleeDetails.active"
-            [formControl]="active" color="primary">
-              <mat-radio-button value="1">Active</mat-radio-button>
-              <mat-radio-button value="0">In active</mat-radio-button>
-            </mat-radio-group>
-          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-          <mat-error *ngIf="active?.hasError('required')"
-            >You must make a selection</mat-error
+          [(ngModel)]="enrolleeDetails.active"
+          [formControl]="active"
+          color="primary"
+        >
+          <mat-radio-button [value]="true">Active</mat-radio-button>
+          <mat-radio-button class="rad-right" [value]="false"
+            >In active</mat-radio-button
           >
-          <!-- <mat-error
-            *ngIf="
-              selected.hasError('pattern') && !selected.hasError('required')
-            "
-          >
-            Your selection is invalid
-          </mat-error> -->
-        <!-- </mat-form-field> -->
+        </mat-radio-group>
+        <mat-error *ngIf="active?.hasError('required')"
+          >You must make a selection</mat-error
+        >
       </div>
     </div>
 
     <div class="row">
-      <div class="col">
+      <div class="col-md-6">
         <button
           type="submit"
           mat-raised-button
@@ -103,9 +81,8 @@
         >
           Save
         </button>
-      </div>
-      <div class="col">
-        <button [routerLink]="['/enroll/view-all']" mat-raised-button>
+        <button [routerLink]="['/enroll/view-all']" mat-raised-button
+        class="m-3">
           Cancel
         </button>
       </div>
